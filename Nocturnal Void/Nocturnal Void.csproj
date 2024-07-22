@@ -8,4 +8,16 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="TZPCsUtils" Version="1.0.1" />
+    <PackageReference Include="TZPRenderers" Version="0.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Entity\Foe\" />
+    <Folder Include="Entity\Item\" />
+    <Folder Include="Entity\NPC\" />
+    <Folder Include="Managers\" />
+  </ItemGroup>
+
 </Project>

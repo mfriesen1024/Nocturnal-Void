@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="TZPCsUtils" Version="1.0.1" />
+    <PackageReference Include="TZPRenderers" Version="0.0.3" />
+  </ItemGroup>
+
 </Project>
