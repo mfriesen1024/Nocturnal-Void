@@ -3,7 +3,7 @@
 namespace Nocturnal_Void.MapConstructs
 {
     /// <summary>
-    /// Represents a tile with a possible hazard on it.
+    /// Represents a renderable text character, its colours, and what (if any) hazards are present.
     /// </summary>
     public class RPGTile : Tile
     {
@@ -14,8 +14,9 @@ namespace Nocturnal_Void.MapConstructs
             this.hazardID = hazardID;
         }
 
-        public RPGTile(string character, int fg, int bg) : base(character, fg, bg)
+        public RPGTile(string character, int fg, int bg, byte hazardID) : base(character, fg, bg)
         {
+            this.hazardID = hazardID;
         }
 
         /// <summary>
@@ -52,7 +53,7 @@ namespace Nocturnal_Void.MapConstructs
 
             byte hazID = bytes[2];
 
-            return new RPGTile(character,fgc, bgc, hazID);
+            return new RPGTile(character, fgc, bgc, hazID);
         }
     }
 }
