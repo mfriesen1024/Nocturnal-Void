@@ -53,7 +53,9 @@ namespace Nocturnal_Void.MapConstructs
 
             byte hazID = bytes[2];
 
-            return new RPGTile(character, fgc, bgc, hazID);
+            // If color was both 0, return nulls so we can render transparency.
+            if (bytes[1] == 0) return new RPGTile(character, null, null, hazID);
+            else return new RPGTile(character, fgc, bgc, hazID);
         }
     }
 }
