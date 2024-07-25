@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Nocturnal_Void.Managers
+﻿namespace Nocturnal_Void.Managers
 {
     /// <summary>
     /// Used to manage stats for an entity.
@@ -55,7 +49,7 @@ namespace Nocturnal_Void.Managers
             HP += value;
 
             // Check if hp is valid, and if not, set it back to a valid value.
-            if(HP <= MaxHP) { HP = MaxHP; }
+            if (HP <= MaxHP) { HP = MaxHP; }
         }
 
         /// <summary>
