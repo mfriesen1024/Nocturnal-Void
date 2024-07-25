@@ -14,10 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Entity\Foe\" />
     <Folder Include="Entity\Item\" />
     <Folder Include="Entity\NPC\" />
-    <Folder Include="Managers\" />
   </ItemGroup>
 
 </Project>
