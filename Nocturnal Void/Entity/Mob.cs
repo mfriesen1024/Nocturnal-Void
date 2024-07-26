@@ -18,5 +18,6 @@ namespace Nocturnal_Void.Entity
         public RelativeRenderable renderable { get; protected set; }
 
         public Hitbox hitbox { get; protected set; }
+        public abstract void Update();
     }
 }
