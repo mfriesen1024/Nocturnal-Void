@@ -20,6 +20,6 @@ namespace Nocturnal_Void.Entity
 
         public RelativeRenderable renderable { get; protected set; }
         public abstract void Update();
-        public abstract void Clone();
+        public abstract Mob Clone();
     }
 }

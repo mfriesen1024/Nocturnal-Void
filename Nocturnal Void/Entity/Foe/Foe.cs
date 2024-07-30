@@ -9,9 +9,12 @@ namespace Nocturnal_Void.Entity.Foe
     /// </summary>
     internal class Foe : Mob
     {
-        public override void Clone()
+        public override Mob Clone()
         {
-            throw new NotImplementedException();
+            Foe foe = (Foe)MemberwiseClone();
+            foe.statMan = statMan.Clone();
+
+            return foe;
         }
 
         public override void Update()

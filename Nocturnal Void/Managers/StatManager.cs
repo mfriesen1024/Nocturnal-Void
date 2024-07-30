@@ -57,5 +57,7 @@
         /// </summary>
         /// <param name="value">The new value.</param>
         public void SetHP(int value) { HP = value; }
+
+        public StatManager Clone() { return (StatManager)MemberwiseClone(); }
     }
 }
