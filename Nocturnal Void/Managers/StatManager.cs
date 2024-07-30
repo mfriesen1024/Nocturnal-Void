@@ -5,20 +5,20 @@
     /// </summary>
     internal class StatManager
     {
-        private int hP;
+        private int _HP;
         private int maxHP;
         public int MaxHP { get => maxHP; protected set => maxHP = value; }
-        public int HP { get => hP; set => hP = value; }
+        public int HP { get => _HP; set => _HP = value; }
 
         /// <summary>
         /// This will be called whenever we want the owner of this StatMan to cease existing.
         /// </summary>
         public Action OnDeath;
 
-        public StatManager(int maxHP, int hP)
+        public StatManager(int maxHP)
         {
             MaxHP = maxHP;
-            HP = hP;
+            HP = maxHP;
         }
 
         /// <summary>
