@@ -8,6 +8,7 @@ namespace Nocturnal_Void.Entity
     /// </summary>
     internal abstract class Mob
     {
+        // For now, we're only going to use 1 tile for hitboxes and rendering.
         public string name;
 
         public StatManager statMan { get; protected set; }
@@ -15,9 +16,10 @@ namespace Nocturnal_Void.Entity
         public int def { get; protected set; }
         public int str { get; protected set; }
 
-        public RelativeRenderable renderable { get; protected set; }
+        public Vector2 location { get; protected set; }
 
-        public Hitbox hitbox { get; protected set; }
+        public RelativeRenderable renderable { get; protected set; }
         public abstract void Update();
+        public abstract void Clone();
     }
 }
