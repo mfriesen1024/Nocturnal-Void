@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Nocturnal_Void
+﻿namespace Nocturnal_Void
 {
     internal struct Vector2
     {
         public int x, y;
+
+        public static Vector2 Zero { get { return new Vector2() { x = 0, y = 0 }; } }
 
         public static explicit operator Vector2(byte[] bytes)
         {
@@ -18,6 +14,14 @@ namespace Nocturnal_Void
             int y = BitConverter.ToInt32(bytes, 4);
 
             return new Vector2() { x = x, y = y };
+        }
+
+        public static explicit operator byte[](Vector2 vector)
+        {
+            List<byte> list = new List<byte>();
+            list.AddRange(BitConverter.GetBytes(vector.x));
+            list.AddRange(BitConverter.GetBytes(vector.y));
+            return list.ToArray();
         }
     }
 }

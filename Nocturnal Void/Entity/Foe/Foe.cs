@@ -42,18 +42,15 @@ namespace Nocturnal_Void.Entity.Foe
             int hp = BitConverter.ToInt32(bytes, 9 + nameLength);
             StatManager statMan = new StatManager(hp);
 
-            // Construct position
-            byte[] positionBytes = list.GetRange(13 + nameLength, 8).ToArray();
-            Vector2 pos = (Vector2)positionBytes;
-
             // Construct renderable.
             // Add 0 because we dont want to eat disc space for a value we never use.
-            var tileBytes = list.GetRange(21 + nameLength, 2); tileBytes.Add(0);
+            var tileBytes = list.GetRange(13 + nameLength, 2); tileBytes.Add(0);
             RPGTile[,] tileArray = new RPGTile[,] { { (RPGTile)tileBytes.ToArray() } };
             RelativeRenderable renderable = new RelativeRenderable(tileArray);
 
             // Finally construct the foe itself.
-            return new Foe() { def = def, str = str, location = pos, statMan = statMan, renderable = renderable };
+            return new Foe() { def = def, str = str, statMan = statMan, renderable = renderable };
+        }
         }
     }
 }

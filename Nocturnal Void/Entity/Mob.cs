@@ -16,7 +16,7 @@ namespace Nocturnal_Void.Entity
         public int def { get; protected set; }
         public int str { get; protected set; }
 
-        public Vector2 location { get; protected set; }
+        public Vector2 location { get; protected set; } = Vector2.Zero;
 
         public RelativeRenderable renderable { get; protected set; }
         public abstract void Update();
