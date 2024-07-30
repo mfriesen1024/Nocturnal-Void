@@ -51,6 +51,24 @@ namespace Nocturnal_Void.Entity.Foe
             // Finally construct the foe itself.
             return new Foe() { def = def, str = str, statMan = statMan, renderable = renderable };
         }
+
+        public static explicit operator byte[](Foe foe)
+        {
+            List<byte> list = new List<byte>();
+
+            // Deconstruct name
+            list.Add((byte)foe.name.Length); // Add the name length so the inverse operation works.
+            foreach (char c in foe.name) { list.Add((byte)c); }
+
+            // Deconstruct stats
+            list.AddRange(BitConverter.GetBytes(foe.def));
+            list.AddRange(BitConverter.GetBytes(foe.str));
+            list.AddRange(BitConverter.GetBytes(foe.statMan.MaxHP));
+
+            var tileBytes = ((byte[])(RPGTile)foe.renderable.tiles[0, 0]).ToList();
+            list.AddRange(tileBytes.GetRange(0,2)); // Only store the first 2 bytes to not waste space.
+
+            return list.ToArray();
         }
     }
 }
