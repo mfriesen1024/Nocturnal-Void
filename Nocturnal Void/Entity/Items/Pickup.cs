@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TZPRenderers.Text;
 
-namespace Nocturnal_Void.Entity.Item
+namespace Nocturnal_Void.Entity.Items
 {
     /// <summary>
     /// Represents an item placed on the map.

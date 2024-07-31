@@ -1,4 +1,4 @@
-﻿namespace Nocturnal_Void.Entity.Item
+﻿namespace Nocturnal_Void.Entity.Items
 {
     internal class Equipment : Item
     {
