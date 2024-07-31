@@ -14,7 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Entity\Item\" />
     <Folder Include="Entity\NPC\" />
   </ItemGroup>
 
