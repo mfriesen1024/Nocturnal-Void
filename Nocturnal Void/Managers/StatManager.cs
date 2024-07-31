@@ -13,7 +13,7 @@
         /// <summary>
         /// This will be called whenever we want the owner of this StatMan to cease existing.
         /// </summary>
-        public Action OnDeath;
+        public Action OnDeath = () => { }; // Lambda so no error.
 
         public StatManager(int maxHP)
         {
