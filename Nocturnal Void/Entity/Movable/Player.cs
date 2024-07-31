@@ -7,14 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using TZPRenderers.Text;
 
-namespace Nocturnal_Void.Entity
+namespace Nocturnal_Void.Entity.Movable
 {
-    internal class Player : Mob
+    internal class Player : MobBase
     {
         // Player's name should always be Player, so just make a constant.
         public new string name { get { return "Player"; } }
 
-        public override Mob Clone()
+        public override MobBase Clone()
         {
             throw new NotImplementedException();
         }

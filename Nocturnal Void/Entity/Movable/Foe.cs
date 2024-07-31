@@ -1,4 +1,5 @@
 ﻿using Nocturnal_Void.Entity.Items;
+using Nocturnal_Void.Entity.Movable;
 using Nocturnal_Void.Managers;
 using Nocturnal_Void.MapConstructs;
 using TZPRenderers.Text;
@@ -8,7 +9,7 @@ namespace Nocturnal_Void.Entity.Foe
     /// <summary>
     /// Represents an opponent.
     /// </summary>
-    internal class Foe : Mob
+    internal class Foe : MobBase
     {
         // Do loot things here.
         public Item loot; // Idk how we're going to assign loot. Deal with this later.
@@ -20,7 +21,7 @@ namespace Nocturnal_Void.Entity.Foe
             statMan.OnDeath += delegate { OnDeath(loot); };
         }
 
-        public override Mob Clone()
+        public override MobBase Clone()
         {
             Foe foe = (Foe)MemberwiseClone();
             foe.statMan = statMan.Clone();
