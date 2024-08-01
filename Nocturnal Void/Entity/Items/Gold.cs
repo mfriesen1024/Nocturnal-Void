@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Nocturnal_Void.Entity.Items
+﻿namespace Nocturnal_Void.Entity.Items
 {
     internal class Gold : Item
     {

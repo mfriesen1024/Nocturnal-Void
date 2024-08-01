@@ -81,7 +81,7 @@ namespace Nocturnal_Void.Entity.Foe
             list.AddRange(BitConverter.GetBytes(foe.statMan.MaxHP));
 
             var tileBytes = ((byte[])(RPGTile)foe.renderable.tiles[0, 0]).ToList();
-            list.AddRange(tileBytes.GetRange(0,2)); // Only store the first 2 bytes to not waste space.
+            list.AddRange(tileBytes.GetRange(0, 2)); // Only store the first 2 bytes to not waste space.
 
             return list.ToArray();
         }
