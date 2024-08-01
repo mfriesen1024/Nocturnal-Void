@@ -27,7 +27,7 @@
         /// </summary>
         /// <param name="fd">The final damage value to be applied.</param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        void Damage(int fd)
+        public void Damage(int fd)
         {
             if (fd < 0) { throw new ArgumentOutOfRangeException("final damage was less than 0."); }
             else if (fd == 0) return; // This isn't wrong, we just don't need to do anything.
@@ -42,7 +42,7 @@
         /// </summary>
         /// <param name="value">The value to heal by.</param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        void Heal(int value)
+        public void Heal(int value)
         {
             if (value < 0) { throw new ArgumentOutOfRangeException("final healing was less than 0."); }
             else if (value == 0) return; // Again, this isn't wrong, and we don't need to do anything.
