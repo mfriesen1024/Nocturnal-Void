@@ -12,7 +12,6 @@ namespace Nocturnal_Void.Entity.Items
     /// </summary>
     internal abstract class Item
     {
-        public RelativeRenderable renderable {  get; protected set; }
 
         /// <summary>
         /// Deep clone method.
