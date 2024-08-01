@@ -20,6 +20,10 @@ namespace Nocturnal_Void.Entity.Movable
 
         public RelativeRenderable renderable { get; protected set; }
         public abstract void Update();
+        /// <summary>
+        /// A deep clone method.
+        /// </summary>
+        /// <returns>A deep copy of the object this is called on.</returns>
         public abstract MobBase Clone();
     }
 }
