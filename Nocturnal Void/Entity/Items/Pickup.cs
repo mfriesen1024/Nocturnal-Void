@@ -1,4 +1,6 @@
-﻿using TZPRenderers.Text;
+﻿using Nocturnal_Void.MapConstructs;
+using System.Collections.Generic;
+using TZPRenderers.Text;
 
 namespace Nocturnal_Void.Entity.Items
 {
@@ -22,6 +24,30 @@ namespace Nocturnal_Void.Entity.Items
             RelativeRenderable newRenderable = new RelativeRenderable(old.tiles, old.location, old.layer);
 
             return new Pickup() { item = item.Clone(), position = position, renderable = newRenderable };
+        }
+
+        /// <summary>
+        /// Creates a pickup from a byte array.
+        /// </summary>
+        /// <param name="bytes">A byte array containing the index, position and renderable for the new pickup.</param>
+        public static explicit operator Pickup(byte[] bytes)
+        {
+            var list = bytes.ToList();
+
+            int index = BitConverter.ToInt32(bytes, 0);
+            // 5th to 12th bytes become x/y coordinate ints.
+            Vector2 pos = (Vector2)bytes.ToList().GetRange(4, 8).ToArray();
+
+            // Construct renderable.
+            // Add 0 because we dont want to eat disc space for a value we never use.
+            var tileBytes = list.GetRange(12, 2); tileBytes.Add(0);
+            RPGTile[,] tileArray = new RPGTile[,] { { (RPGTile)tileBytes.ToArray() } };
+            RelativeRenderable renderable = new RelativeRenderable(tileArray);
+
+            // TODO: Add item index fetching. Use a null value for now.
+            Item item = null;
+
+            return new Pickup() { item = item, position = pos, renderable = renderable };
         }
     }
 }
