@@ -1,10 +1,6 @@
-﻿using Nocturnal_Void.Managers;
+﻿using Nocturnal_Void.Entity.Items;
+using Nocturnal_Void.Managers;
 using Nocturnal_Void.MapConstructs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TZPRenderers.Text;
 
 namespace Nocturnal_Void.Entity.Movable
@@ -13,6 +9,52 @@ namespace Nocturnal_Void.Entity.Movable
     {
         // Player's name should always be Player, so just make a constant.
         public new string name { get { return "Player"; } }
+
+        // Inventory things
+        List<Item> inventory = new List<Item>();
+        Equipment[] equipped = new Equipment[3];
+        public int gold { get; protected set; } = 0;
+
+        /// <summary>
+        /// Adds an item to inventory. If the item is gold, add its value to gold var instead.
+        /// </summary>
+        /// <param name="item"></param>
+        void AddItem(Item item)
+        {
+            if (item is not Gold) { inventory.Add(item); }
+            else { gold += ((Gold)item).value; }
+        }
+
+        /// <summary>
+        /// Equips an item, replacing anything currently in the slot. The item remains in the primary inventory list.
+        /// This will silent fail if anything breaks.
+        /// </summary>
+        /// <param name="item">The item to be equipped.</param>
+        /// <param name="slot">The equipment slot to use.</param>
+        void EquipItem(Equipment item, int slot) { if (equipped.ToList().Contains(item)) { return; } try { equipped[slot] = item; } catch { } }
+
+        void ConsumeItem(Consumable item)
+        {
+            switch (item.type)
+            {
+                case Consumable.ConsumableType.heal: statMan.Heal(item.value); break;
+                default: Console.WriteLine(new NotImplementedException()); break;
+            }
+        }
+        /// <summary>
+        /// Removes an item from inventory and equipment list.
+        /// </summary>
+        /// <param name="item">The item to be removed.</param>
+        void RemoveItem(Item item)
+        {
+            inventory.Remove(item);
+            var equipment = equipped.ToList();
+            if (equipment.Contains(item))
+            {
+                equipment.Remove((Equipment)item);
+            }
+            equipped = equipment.ToArray();
+        }
 
         public override MobBase Clone()
         {
