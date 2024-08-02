@@ -1,5 +1,5 @@
-﻿using Nocturnal_Void.MapConstructs;
-using NVFileSystem;
+﻿using Nocturnal_Void.FileSystem;
+using Nocturnal_Void.MapConstructs;
 using TZPRenderers.Text;
 
 namespace Nocturnal_Void.Entity.Items
@@ -45,7 +45,7 @@ namespace Nocturnal_Void.Entity.Items
             RelativeRenderable renderable = new RelativeRenderable(tileArray);
 
             // TODO: Add item index fetching. Use a null value for now.
-            Item item = null;
+            Item item = FileManager.ItemLoader.AllItems[index];
 
             return new Pickup() { item = item, position = pos, renderable = renderable };
         }
