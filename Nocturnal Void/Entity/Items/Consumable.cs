@@ -2,6 +2,7 @@
 {
     public class Consumable : Item
     {
+        public const int requiredBytes = 5;
         public ConsumableType type;
         public int value;
 
