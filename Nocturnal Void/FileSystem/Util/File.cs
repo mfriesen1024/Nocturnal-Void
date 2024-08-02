@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SFile = System.IO.File;
 
-namespace NVFileSystem.Util
+namespace Nocturnal_Void.FileSystem.Util
 {
     /// <summary>
     /// Represents a file or directory.
@@ -25,7 +25,7 @@ namespace NVFileSystem.Util
         /// </summary>
         /// <param name="parent">The parent file/directory</param>
         /// <param name="path">The final path of the object.</param>
-        public File(File parent, string path) { this.path = parent.path + "\\" +  path; finalDir = parent.path; }
+        public File(File parent, string path) { this.path = parent.path + "\\" + path; finalDir = parent.path; }
 
         // Initialize the object, should set values such as finalDir and be called during constructor.
         protected void Init()

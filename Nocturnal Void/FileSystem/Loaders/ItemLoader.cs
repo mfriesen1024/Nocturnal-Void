@@ -1,7 +1,7 @@
 ﻿using Nocturnal_Void.Entity.Items;
-using File = NVFileSystem.Util.File;
+using File = Nocturnal_Void.FileSystem.Util.File;
 
-namespace NVFileSystem.Loaders
+namespace Nocturnal_Void.FileSystem.Loaders
 {
     public class ItemLoader
     {
@@ -54,7 +54,7 @@ namespace NVFileSystem.Loaders
             itemList.AddRange(equip);
 
             // Now define gold.
-            int gStart = BitConverter.ToInt32(data.ToArray(),eEnd + 1);
+            int gStart = BitConverter.ToInt32(data.ToArray(), eEnd + 1);
             int gEnd = BitConverter.ToInt32(data.ToArray(), eEnd + 5);
 
             // Get gold.
@@ -67,10 +67,10 @@ namespace NVFileSystem.Loaders
             itemList.AddRange(gold);
 
             // Set the array so pickup can reference it.
-            allItems = itemList.ToArray();  
+            allItems = itemList.ToArray();
 
             // Define range for pickups.
-            int pStart = BitConverter.ToInt32(data.ToArray(),gEnd + 1);
+            int pStart = BitConverter.ToInt32(data.ToArray(), gEnd + 1);
             int pEnd = BitConverter.ToInt32(data.ToArray(), gEnd + 5);
 
             for (int i = pStart; i < pEnd; i += 14)
