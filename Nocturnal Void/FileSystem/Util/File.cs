@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SFile = System.IO.File;
+﻿using SFile = System.IO.File;
 
 namespace Nocturnal_Void.FileSystem.Util
 {
