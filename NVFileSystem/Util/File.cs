@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SFile = System.IO.File;
 
 namespace NVFileSystem.Util
 {
@@ -44,7 +45,7 @@ namespace NVFileSystem.Util
         public bool VerifyFile()
         {
             if (!Directory.Exists(finalDir)) { Directory.CreateDirectory(finalDir); }
-            if (!System.IO.File.Exists(path)) {  System.IO.File.Create(path).Close(); return false; }
+            if (!SFile.Exists(path)) { SFile.Create(path).Close(); return false; }
             return true;
         }
 
@@ -55,7 +56,7 @@ namespace NVFileSystem.Util
         /// <exception cref="InvalidOperationException">Thrown if the file didn't exist.</exception>
         public byte[] ReadBytes()
         {
-            if (VerifyFile()) { return System.IO.File.ReadAllBytes(path); }
+            if (VerifyFile()) { return SFile.ReadAllBytes(path); }
             throw new InvalidOperationException($"The file didn't exist, and therefore cannot be read.");
         }
 
@@ -66,7 +67,7 @@ namespace NVFileSystem.Util
         public void WriteBytes(byte[] data)
         {
             VerifyFile();
-            System.IO.File.WriteAllBytes(path, data);
+            SFile.WriteAllBytes(path, data);
         }
     }
 }
