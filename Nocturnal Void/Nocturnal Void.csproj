@@ -17,4 +17,8 @@
     <Folder Include="Entity\NPC\" />
   </ItemGroup>
 
+	<ItemGroup>
+		<ProjectReference Include="..\NVFileSystem\NVFileSystem.csproj"/>
+	</ItemGroup>
+
 </Project>

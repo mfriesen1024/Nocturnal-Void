@@ -11,4 +11,9 @@
     <PackageReference Include="TZPCsUtils" Version="1.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Nocturnal Void\Nocturnal Void.csproj" />
+    <ProjectReference Include="..\NVFileSystem\NVFileSystem.csproj" />
+  </ItemGroup>
+
 </Project>

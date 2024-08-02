@@ -11,4 +11,8 @@
     <PackageReference Include="TZPRenderers" Version="0.0.3" />
   </ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Nocturnal Void\Nocturnal Void.csproj" />
+	</ItemGroup>
+
 </Project>
