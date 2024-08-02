@@ -12,6 +12,12 @@ namespace NVFileSystem.Loaders
         Item[] allItems;
         Pickup[] pickups;
 
+        public Consumable[] Consumables { get => consumables; }
+        public Equipment[] Equip { get => equip; }
+        public Gold[] Gold { get => gold; }
+        public Item[] AllItems { get => allItems; }
+        public Pickup[] Pickups { get => pickups; }
+
         public void Load(File path)
         {
             File items = new File(path, fName);
