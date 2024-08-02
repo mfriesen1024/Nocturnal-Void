@@ -1,8 +1,7 @@
-﻿using NVFileSystem.Loaders;
-using NVFileSystem.Util;
-using File = NVFileSystem.Util.File;
+﻿using Nocturnal_Void.FileSystem.Loaders;
+using File = Nocturnal_Void.FileSystem.Util.File;
 
-namespace NVFileSystem
+namespace Nocturnal_Void.FileSystem
 {
     public static class FileManager
     {
@@ -19,6 +18,6 @@ namespace NVFileSystem
         public static void Save(string path)
         {
 
-        }        
+        }
     }
 }
