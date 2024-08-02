@@ -8,12 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="TZPCsUtils" Version="1.0.1" />
+    <PackageReference Include="TZPCsUtils" Version="1.0.1">
+      <TreatAsUsed>true</TreatAsUsed>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Nocturnal Void\Nocturnal Void.csproj" />
-    <ProjectReference Include="..\NVFileSystem\NVFileSystem.csproj" />
+    <ProjectReference Include="..\Nocturnal Void\Nocturnal Void.csproj">
+      <TreatAsUsed>true</TreatAsUsed>
+    </ProjectReference>
   </ItemGroup>
 
 </Project>
