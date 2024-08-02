@@ -9,7 +9,7 @@ namespace Nocturnal_Void.Entity.Foe
     /// <summary>
     /// Represents an opponent.
     /// </summary>
-    internal class Foe : MobBase
+    public class Foe : MobBase
     {
         // Do loot things here.
         public Item loot; // Idk how we're going to assign loot. Deal with this later.

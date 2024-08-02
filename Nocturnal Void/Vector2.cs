@@ -1,6 +1,6 @@
 ﻿namespace Nocturnal_Void
 {
-    internal struct Vector2
+    public struct Vector2
     {
         public int x, y;
 

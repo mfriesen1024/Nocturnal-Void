@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents an item.
     /// </summary>
-    internal abstract class Item
+    public abstract class Item
     {
 
         /// <summary>

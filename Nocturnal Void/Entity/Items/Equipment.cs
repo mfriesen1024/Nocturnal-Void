@@ -1,6 +1,6 @@
 ﻿namespace Nocturnal_Void.Entity.Items
 {
-    internal class Equipment : Item
+    public class Equipment : Item
     {
         public int value { get; protected set; }
         public EquipType type { get; protected set; }

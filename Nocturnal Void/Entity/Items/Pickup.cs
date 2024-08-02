@@ -6,7 +6,7 @@ namespace Nocturnal_Void.Entity.Items
     /// <summary>
     /// Represents an item placed on the map.
     /// </summary>
-    internal class Pickup
+    public class Pickup
     {
         public RelativeRenderable renderable { get; protected set; }
         public Item item { get; protected set; }

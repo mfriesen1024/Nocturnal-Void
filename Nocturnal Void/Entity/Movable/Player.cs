@@ -5,7 +5,7 @@ using TZPRenderers.Text;
 
 namespace Nocturnal_Void.Entity.Movable
 {
-    internal class Player : MobBase
+    public class Player : MobBase
     {
         // Player's name should always be Player, so just make a constant.
         public new string name { get { return "Player"; } }

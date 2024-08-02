@@ -1,6 +1,6 @@
 ﻿namespace Nocturnal_Void.Entity.Items
 {
-    internal class Consumable : Item
+    public class Consumable : Item
     {
         public ConsumableType type;
         public int value;
