@@ -48,12 +48,21 @@ namespace NVFileSystem.Util
             return true;
         }
 
+        /// <summary>
+        /// Read all bytes from the file this object represents.
+        /// </summary>
+        /// <returns>The data read from the file as a byte array.</returns>
+        /// <exception cref="InvalidOperationException">Thrown if the file didn't exist.</exception>
         public byte[] ReadBytes()
         {
             if (VerifyFile()) { return System.IO.File.ReadAllBytes(path); }
             throw new InvalidOperationException($"The file didn't exist, and therefore cannot be read.");
         }
 
+        /// <summary>
+        /// Writes the data to the file this object represents.
+        /// </summary>
+        /// <param name="data">An array of bytes to be written.</param>
         public void WriteBytes(byte[] data)
         {
             VerifyFile();
