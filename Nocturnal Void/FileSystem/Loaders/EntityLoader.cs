@@ -76,5 +76,14 @@ namespace Nocturnal_Void.FileSystem.Loaders
             // Now save all data to file.
             dataFile.WriteBytes(data.ToArray());
         }
+
+        /// <summary>
+        /// Setter method. Should only be used by the editor.
+        /// </summary>
+        public void SetPlayer(Player player) => this.player = player;
+        /// <summary>
+        /// Setter method. Should only be used by the editor.
+        /// </summary>
+        public void SetFoes(IEnumerable<Foe> foes) => this.foes = (Foe[])foes;
     }
 }
