@@ -7,8 +7,8 @@ namespace Nocturnal_Void.Entity.Movable
 {
     public class Player : MobBase
     {
-        // Player's name should always be Player, so just make a constant.
-        public new string name { get { return "Player"; } }
+        public const int reqBytes = 14;
+        public new const string name = "Player";        // Player's name should always be Player, so just make a constant.
 
         // Inventory things
         List<Item> inventory = new List<Item>();
@@ -66,6 +66,10 @@ namespace Nocturnal_Void.Entity.Movable
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Create a player object from a byte array.
+        /// </summary>
+        /// <param name="bytes">A byte array of length equal or greater than reqBytes</param>
         public static explicit operator Player(byte[] bytes)
         {
             List<byte> list = new List<byte>();
