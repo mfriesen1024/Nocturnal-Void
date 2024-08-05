@@ -50,5 +50,25 @@ namespace Nocturnal_Void.Entity.Items
 
             return new Pickup() { item = item, position = pos, renderable = renderable };
         }
+
+        public static explicit operator byte[](Pickup pickup)
+        {
+            var list = new List<byte>();
+
+            // Get index of the item we have, so we can save the index
+            int index = FileManager.ItemLoader.AllItems.ToList().IndexOf(pickup.item);
+
+            // Now save index
+            list.AddRange(BitConverter.GetBytes(index));
+
+            // Save position
+            list.AddRange((byte[])pickup.position);
+
+            // Save renderable by getting the first 2 bytes (we skip the last one) then saving.
+            var tileBytes = ((byte[])(RPGTile)pickup.renderable.tiles[0, 0]).ToList().GetRange(0, 2);
+            list.AddRange(tileBytes);
+
+            return list.ToArray();
+        }
     }
 }
