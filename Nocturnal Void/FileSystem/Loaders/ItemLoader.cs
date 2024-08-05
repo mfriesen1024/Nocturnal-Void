@@ -110,7 +110,7 @@ namespace Nocturnal_Void.FileSystem.Loaders
 
             foreach(Consumable consumable in consumables) { bytes.AddRange((byte[])consumable); }
 
-            // Start/End
+            // Start/End for Equip
             int eStart = cEnd + 9;
             int eEnd = eStart -1 + equip.Length * Equipment.requiredBytes;
             bytes.AddRange(BitConverter.GetBytes(eStart));
@@ -118,7 +118,7 @@ namespace Nocturnal_Void.FileSystem.Loaders
 
             foreach(Equipment equipment in equip) { bytes.AddRange((byte[])equipment);}
 
-            // More Start/End
+            // Gold
             int gStart = eEnd + 9;
             int gEnd = gStart -1 + goldItems.Length * Gold.requiredBytes;
             bytes.AddRange(BitConverter.GetBytes(gStart));
