@@ -3,9 +3,8 @@ using File = Nocturnal_Void.FileSystem.Util.File;
 
 namespace Nocturnal_Void.FileSystem.Loaders
 {
-    public class ItemLoader
+    public class ItemLoader : LoaderBase
     {
-        string fName = "items.bin";
         Consumable[] consumables;
         Equipment[] equip;
         Gold[] goldItems;
@@ -18,7 +17,7 @@ namespace Nocturnal_Void.FileSystem.Loaders
         public Item[] AllItems { get => allItems; }
         public Pickup[] Pickups { get => pickups; }
 
-        public void Load(File path)
+        public override void Load(File path)
         {
             File items = new File(path, fName);
 
@@ -87,7 +86,7 @@ namespace Nocturnal_Void.FileSystem.Loaders
             }
         }
 
-        void Save (File path)
+        public override void Save (File path)
         {
             File items = new File(path, fName);
 
