@@ -26,9 +26,9 @@ namespace Nocturnal_Void.FileSystem.Loaders
 
         public override void Load(File path)
         {
-            File items = new File(path, fName);
+            File dataFile = new File(path, fName);
 
-            var data = items.ReadBytes().ToList();
+            var data = dataFile.ReadBytes().ToList();
             var itemList = allItems.ToList();
 
             // Track the required bytes for a conversion.
@@ -95,7 +95,7 @@ namespace Nocturnal_Void.FileSystem.Loaders
 
         public override void Save (File path)
         {
-            File items = new File(path, fName);
+            File dataFile = new File(path, fName);
 
             var bytes = new List<byte>();
 
@@ -140,7 +140,7 @@ namespace Nocturnal_Void.FileSystem.Loaders
 
             foreach(Pickup pickup in pickups) { bytes.AddRange((byte[])pickup);}
 
-            items.WriteBytes(bytes.ToArray());
+            dataFile.WriteBytes(bytes.ToArray());
         }
     }
 }
