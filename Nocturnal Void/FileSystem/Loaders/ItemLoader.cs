@@ -17,6 +17,10 @@ namespace Nocturnal_Void.FileSystem.Loaders
         public Item[] AllItems { get => allItems; }
         public Pickup[] Pickups { get => pickups; }
 
+        public ItemLoader(string fName) : base(fName)
+        {
+        }
+
         public override void Load(File path)
         {
             File items = new File(path, fName);
