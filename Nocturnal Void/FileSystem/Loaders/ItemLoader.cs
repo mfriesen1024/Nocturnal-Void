@@ -3,6 +3,9 @@ using File = Nocturnal_Void.FileSystem.Util.File;
 
 namespace Nocturnal_Void.FileSystem.Loaders
 {
+    /// <summary>
+    /// A loader that constructs and stores items.
+    /// </summary>
     public class ItemLoader : LoaderBase
     {
         Consumable[] consumables;
