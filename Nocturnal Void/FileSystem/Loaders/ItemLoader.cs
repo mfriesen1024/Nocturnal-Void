@@ -11,14 +11,14 @@ namespace Nocturnal_Void.FileSystem.Loaders
         Consumable[] consumables;
         Equipment[] equip;
         Gold[] goldItems;
-        Item[] allItems;
         Pickup[] pickups;
+        Item[] allItems;
 
         public Consumable[] Consumables { get => consumables; }
         public Equipment[] Equip { get => equip; }
         public Gold[] GoldItems { get => goldItems; }
-        public Item[] AllItems { get => allItems; }
         public Pickup[] Pickups { get => pickups; }
+        public Item[] AllItems { get => allItems; }
 
         public ItemLoader(string fName) : base(fName)
         {
@@ -29,7 +29,6 @@ namespace Nocturnal_Void.FileSystem.Loaders
             File dataFile = new File(path, fName);
 
             var data = dataFile.ReadBytes().ToList();
-            var itemList = allItems.ToList();
 
             // Track the required bytes for a conversion.
             int reqBytes;
@@ -47,8 +46,7 @@ namespace Nocturnal_Void.FileSystem.Loaders
                 consumables.Add((Consumable)data.GetRange(i, reqBytes).ToArray());
             }
             this.consumables = consumables.ToArray();
-            itemList.AddRange(consumables);
-
+            
             // Next 8 bytes should define a range for equip.
             int eStart = BitConverter.ToInt32(data.ToArray(), cEnd + 1);
             int eEnd = BitConverter.ToInt32(data.ToArray(), cEnd + 5);
@@ -62,8 +60,7 @@ namespace Nocturnal_Void.FileSystem.Loaders
                 equip.Add((Equipment)data.GetRange(i, reqBytes).ToArray());
             }
             this.equip = equip.ToArray();
-            itemList.AddRange(equip);
-
+      
             // Now define gold.
             int gStart = BitConverter.ToInt32(data.ToArray(), eEnd + 1);
             int gEnd = BitConverter.ToInt32(data.ToArray(), eEnd + 5);
@@ -76,10 +73,9 @@ namespace Nocturnal_Void.FileSystem.Loaders
                 gold.Add((Gold)data.GetRange(i, 4).ToArray());
             }
             goldItems = gold.ToArray();
-            itemList.AddRange(gold);
 
             // Set the array so pickup can reference it.
-            allItems = itemList.ToArray();
+            UpdateItemArray();
 
             // Define range for pickups.
             int pStart = BitConverter.ToInt32(data.ToArray(), gEnd + 1);
@@ -141,6 +137,15 @@ namespace Nocturnal_Void.FileSystem.Loaders
             foreach(Pickup pickup in pickups) { bytes.AddRange((byte[])pickup);}
 
             dataFile.WriteBytes(bytes.ToArray());
+        }
+
+        /// <summary>
+        /// Should be called when any array is changed.
+        /// </summary>
+        void UpdateItemArray()
+        {
+            List<Item> items = [.. consumables, .. equip, .. goldItems];
+            allItems = items.ToArray();
         }
     }
 }
