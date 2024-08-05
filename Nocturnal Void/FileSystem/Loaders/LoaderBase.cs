@@ -1,5 +1,4 @@
-﻿using Nocturnal_Void.FileSystem.Util;
-using File = Nocturnal_Void.FileSystem.Util.File;
+﻿using File = Nocturnal_Void.FileSystem.Util.File;
 
 namespace Nocturnal_Void.FileSystem.Loaders
 {
