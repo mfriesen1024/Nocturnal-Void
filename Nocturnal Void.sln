@@ -7,9 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nocturnal Void", "Nocturnal
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NVCampaignEditor", "NVCampaignEditor\NVCampaignEditor.csproj", "{83B26CB0-3F21-4B3F-9197-2E385CEBB4F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NVFileSystem", "NVFileSystem\NVFileSystem.csproj", "{E603ACF5-8A0F-43C0-B426-EB8EC796BE47}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nocturnal VoidTests", "Nocturnal VoidTests\Nocturnal VoidTests.csproj", "{005FD18F-9493-4BBE-89DD-0ED416BBB22B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nocturnal VoidTests", "Nocturnal VoidTests\Nocturnal VoidTests.csproj", "{005FD18F-9493-4BBE-89DD-0ED416BBB22B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		{83B26CB0-3F21-4B3F-9197-2E385CEBB4F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83B26CB0-3F21-4B3F-9197-2E385CEBB4F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83B26CB0-3F21-4B3F-9197-2E385CEBB4F6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E603ACF5-8A0F-43C0-B426-EB8EC796BE47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E603ACF5-8A0F-43C0-B426-EB8EC796BE47}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E603ACF5-8A0F-43C0-B426-EB8EC796BE47}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E603ACF5-8A0F-43C0-B426-EB8EC796BE47}.Release|Any CPU.Build.0 = Release|Any CPU
 		{005FD18F-9493-4BBE-89DD-0ED416BBB22B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{005FD18F-9493-4BBE-89DD-0ED416BBB22B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{005FD18F-9493-4BBE-89DD-0ED416BBB22B}.Release|Any CPU.ActiveCfg = Release|Any CPU
