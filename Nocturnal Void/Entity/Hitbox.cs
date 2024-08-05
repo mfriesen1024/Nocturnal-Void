@@ -3,7 +3,7 @@
     /// <summary>
     /// Defines a range where an attack will hit as a t/f value.
     /// </summary>
-    internal class Hitbox
+    public class Hitbox
     {
         // I'm aware that this can be shortened to be a bool array, but i couldnt get a converter working, so this is 8x fatter than it needs to be.
         private static int bytesNeeded = 8;

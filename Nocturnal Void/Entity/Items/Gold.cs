@@ -1,7 +1,8 @@
 ﻿namespace Nocturnal_Void.Entity.Items
 {
-    internal class Gold : Item
+    public class Gold : Item
     {
+        public const int requiredBytes = 4;
         public int value = 1;
         public override Item Clone()
         {

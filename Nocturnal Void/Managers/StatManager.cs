@@ -3,7 +3,7 @@
     /// <summary>
     /// Used to manage stats for an entity.
     /// </summary>
-    internal class StatManager
+    public class StatManager
     {
         private int _HP;
         private int maxHP;

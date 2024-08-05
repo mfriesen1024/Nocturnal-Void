@@ -1,4 +1,5 @@
-﻿using Nocturnal_Void.MapConstructs;
+﻿using Nocturnal_Void.FileSystem;
+using Nocturnal_Void.MapConstructs;
 using TZPRenderers.Text;
 
 namespace Nocturnal_Void.Entity.Items
@@ -6,8 +7,9 @@ namespace Nocturnal_Void.Entity.Items
     /// <summary>
     /// Represents an item placed on the map.
     /// </summary>
-    internal class Pickup
+    public class Pickup
     {
+        public const int requiredBytes = 14;
         public RelativeRenderable renderable { get; protected set; }
         public Item item { get; protected set; }
         public Vector2 position { get; protected set; } // Pickups are static in location, they shouldnt move.
@@ -44,9 +46,29 @@ namespace Nocturnal_Void.Entity.Items
             RelativeRenderable renderable = new RelativeRenderable(tileArray);
 
             // TODO: Add item index fetching. Use a null value for now.
-            Item item = null;
+            Item item = FileManager.ItemLoader.AllItems[index];
 
             return new Pickup() { item = item, position = pos, renderable = renderable };
+        }
+
+        public static explicit operator byte[](Pickup pickup)
+        {
+            var list = new List<byte>();
+
+            // Get index of the item we have, so we can save the index
+            int index = FileManager.ItemLoader.AllItems.ToList().IndexOf(pickup.item);
+
+            // Now save index
+            list.AddRange(BitConverter.GetBytes(index));
+
+            // Save position
+            list.AddRange((byte[])pickup.position);
+
+            // Save renderable by getting the first 2 bytes (we skip the last one) then saving.
+            var tileBytes = ((byte[])(RPGTile)pickup.renderable.tiles[0, 0]).ToList().GetRange(0, 2);
+            list.AddRange(tileBytes);
+
+            return list.ToArray();
         }
     }
 }

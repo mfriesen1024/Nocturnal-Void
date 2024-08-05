@@ -1,6 +1,6 @@
 ﻿namespace Nocturnal_Void
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {

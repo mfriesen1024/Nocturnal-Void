@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents a map transition trigger
     /// </summary>
-    internal class Transition
+    public class Transition
     {
         private int yMax;
         private int xMin;
