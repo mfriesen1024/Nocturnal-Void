@@ -5,7 +5,7 @@ namespace Nocturnal_Void.FileSystem
 {
     public static class FileManager
     {
-        public static ItemLoader ItemLoader { get; private set; } = new ItemLoader();
+        public static ItemLoader ItemLoader { get; private set; } = new ItemLoader("items.bin");
 
 
         public static void Load(string path)
