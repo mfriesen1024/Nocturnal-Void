@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Nocturnal_Void.FileSystem.Tests
 {
     [TestClass()]
-    public class FileManagerTests
+    public class FileManagerTest
     {
         [TestMethod()]
         public void LoadTest()
