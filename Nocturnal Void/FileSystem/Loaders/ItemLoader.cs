@@ -93,9 +93,18 @@ namespace Nocturnal_Void.FileSystem.Loaders
 
             var bytes = new List<byte>();
 
+            /* 
+             * Whats with the magic numbers?:
+             * 
+             * 7 and -1: the index of our start index was inclusive, so our end index should be too. Subtract 1 from start, then add length.
+             * 8: start index must be the 9th byte or index 8, because we save start/end locations as 4 byte arrays, from ints.
+             * 9: our next start index needs to be offset by 9, because start/end indices should be the inclusive range of the data,
+             * but not include the index metadata. Therefore, add 8 for our metadata, add 1 to find the next start index.
+            */
+
             // Start/End Indices
             int cStart = 8;
-            int cEnd = 7 + consumables.Length;
+            int cEnd = 7 + consumables.Length * Consumable.requiredBytes;
             bytes.AddRange(BitConverter.GetBytes(cStart));
             bytes.AddRange(BitConverter.GetBytes(cEnd));
 
@@ -103,7 +112,7 @@ namespace Nocturnal_Void.FileSystem.Loaders
 
             // Start/End
             int eStart = cEnd + 9;
-            int eEnd = eStart -1 + equip.Length;
+            int eEnd = eStart -1 + equip.Length * Equipment.requiredBytes;
             bytes.AddRange(BitConverter.GetBytes(eStart));
             bytes.AddRange(BitConverter.GetBytes(eEnd));
 
@@ -111,7 +120,7 @@ namespace Nocturnal_Void.FileSystem.Loaders
 
             // More Start/End
             int gStart = eEnd + 9;
-            int gEnd = gStart -1 + goldItems.Length;
+            int gEnd = gStart -1 + goldItems.Length * Gold.requiredBytes;
             bytes.AddRange(BitConverter.GetBytes(gStart));
             bytes.AddRange(BitConverter.GetBytes(gEnd));
 
@@ -119,7 +128,7 @@ namespace Nocturnal_Void.FileSystem.Loaders
 
             // Pickups
             int pStart = gEnd + 9;
-            int pEnd = pStart -1 + pickups.Length;
+            int pEnd = pStart -1 + pickups.Length * Pickup.requiredBytes;
             bytes.AddRange(BitConverter.GetBytes(pStart));
             bytes.AddRange(BitConverter.GetBytes(pEnd));
 
