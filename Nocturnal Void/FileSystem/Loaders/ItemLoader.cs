@@ -86,5 +86,46 @@ namespace Nocturnal_Void.FileSystem.Loaders
                 pickups.Add((Pickup)data.GetRange(i, 14).ToArray());
             }
         }
+
+        void Save (File path)
+        {
+            File items = new File(path, fName);
+
+            var bytes = new List<byte>();
+
+            // Start/End Indices
+            int cStart = 8;
+            int cEnd = 7 + consumables.Length;
+            bytes.AddRange(BitConverter.GetBytes(cStart));
+            bytes.AddRange(BitConverter.GetBytes(cEnd));
+
+            foreach(Consumable consumable in consumables) { bytes.AddRange((byte[])consumable); }
+
+            // Start/End
+            int eStart = cEnd + 9;
+            int eEnd = eStart -1 + equip.Length;
+            bytes.AddRange(BitConverter.GetBytes(eStart));
+            bytes.AddRange(BitConverter.GetBytes(eEnd));
+
+            foreach(Equipment equipment in equip) { bytes.AddRange((byte[])equipment);}
+
+            // More Start/End
+            int gStart = eEnd + 9;
+            int gEnd = gStart -1 + goldItems.Length;
+            bytes.AddRange(BitConverter.GetBytes(gStart));
+            bytes.AddRange(BitConverter.GetBytes(gEnd));
+
+            foreach (Gold gItem in goldItems) {bytes.AddRange((byte[])gItem);}
+
+            // Pickups
+            int pStart = gEnd + 9;
+            int pEnd = pStart -1 + pickups.Length;
+            bytes.AddRange(BitConverter.GetBytes(pStart));
+            bytes.AddRange(BitConverter.GetBytes(pEnd));
+
+            foreach(Pickup pickup in pickups) { bytes.AddRange((byte[])pickup);}
+
+            items.WriteBytes(bytes.ToArray());
+        }
     }
 }
