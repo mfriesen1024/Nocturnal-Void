@@ -1,4 +1,5 @@
-﻿using NVCampaignEditor.Util;
+﻿using NVCampaignEditor.Command;
+using NVCampaignEditor.Util;
 using System.Reflection;
 
 namespace NVCampaignEditor
@@ -7,7 +8,7 @@ namespace NVCampaignEditor
     {
         static void Main(string[] args)
         {
-            // EntryCommand entry = new EntryCommand();
+            EntryCommand entry = new EntryCommand();
             Startup();
             Loop();
 
@@ -32,7 +33,17 @@ namespace NVCampaignEditor
                     Console.WriteLine();
 
                     string[] args = CommandParser.ParseArgs(Console.ReadLine());
-                    //entry.Invoke(args);
+
+                    try
+                    {
+                        entry.Invoke(args);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                        Console.WriteLine();
+                        Console.WriteLine($"Command failed due to {e.GetType()} with message {e.Message}");
+                    }
                 }
             }
         }

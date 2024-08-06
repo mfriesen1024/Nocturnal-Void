@@ -1,4 +1,4 @@
-﻿namespace NVCampaignEditor
+﻿namespace NVCampaignEditor.Command
 {
     abstract class CommandBase
     {
