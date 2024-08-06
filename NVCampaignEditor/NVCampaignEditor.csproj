@@ -19,8 +19,4 @@
     </ProjectReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Command\PrimaryCommands\" />
-  </ItemGroup>
-
 </Project>
