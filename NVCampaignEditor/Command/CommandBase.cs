@@ -15,21 +15,26 @@
         public virtual void Invoke(string[] argArray)
         {
             var argList = argArray.ToList();
-            string s1 = argList[0]; // Check this against subcommand aliases.
 
-            foreach (CommandBase subcommand in subcommands)
+            try
             {
-                if (subcommand.Aliases != null)
+                string s1 = argList[0]; // Check this against subcommand aliases.
+
+                foreach (CommandBase subcommand in subcommands)
                 {
-                    if (subcommand.Aliases.Contains(s1))
+                    if (subcommand.Aliases != null)
                     {
-                        // In theory, this shouldnt cause issues, but be prepared to define a new var for this.
-                        // Remove the subcommand from the args we pass.
-                        argList.RemoveAt(0);
-                        subcommand.Invoke(argList.ToArray()); return;
+                        if (subcommand.Aliases.Contains(s1))
+                        {
+                            // In theory, this shouldnt cause issues, but be prepared to define a new var for this.
+                            // Remove the subcommand from the args we pass.
+                            argList.RemoveAt(0);
+                            subcommand.Invoke(argList.ToArray()); return;
+                        }
                     }
                 }
             }
+            catch (Exception e) { if (e is not ArgumentOutOfRangeException) { throw; } }
 
             Process(argArray);
         }
