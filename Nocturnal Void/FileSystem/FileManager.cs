@@ -1,4 +1,6 @@
-﻿using Nocturnal_Void.FileSystem.Loaders;
+﻿using Nocturnal_Void.Entity.Items;
+using Nocturnal_Void.Entity.Movable;
+using Nocturnal_Void.FileSystem.Loaders;
 using File = Nocturnal_Void.FileSystem.Util.File;
 
 namespace Nocturnal_Void.FileSystem
@@ -22,6 +24,22 @@ namespace Nocturnal_Void.FileSystem
 
             ItemLoader.Save(dir);
             EntityLoader.Save(dir);
+        }
+
+        /// <summary>
+        /// Initializes the system with sample data.
+        /// </summary>
+        public static void Init()
+        {
+            // Item init.
+            ItemLoader.SetConsumables([new Consumable()]);
+            ItemLoader.SetEquip([new Equipment()]);
+            ItemLoader.SetGold([new Gold()]);
+            ItemLoader.SetPickups([new Pickup()]);
+
+            // Entity init.
+            EntityLoader.SetPlayer(new Player());
+            EntityLoader.SetFoes([new Foe()]);
         }
     }
 }
