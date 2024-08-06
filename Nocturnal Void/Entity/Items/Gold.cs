@@ -4,6 +4,16 @@
     {
         public const int requiredBytes = 4;
         public int value = 1;
+
+        public Gold()
+        {
+        }
+
+        public Gold(int value)
+        {
+            this.value = value;
+        }
+
         public override Item Clone()
         {
             return (Item)MemberwiseClone();

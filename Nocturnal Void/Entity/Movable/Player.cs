@@ -15,6 +15,13 @@ namespace Nocturnal_Void.Entity.Movable
         Equipment[] equipped = new Equipment[3];
         public int gold { get; protected set; } = 0;
 
+        public Player(string name, StatManager statMan, int def, int str, Vector2 location, RelativeRenderable renderable) : base(name, statMan, def, str, location, renderable)
+        {
+        }
+
+        public Player() : base() { }
+
+
         /// <summary>
         /// Adds an item to inventory. If the item is gold, add its value to gold var instead.
         /// </summary>

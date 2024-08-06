@@ -9,6 +9,15 @@
         public delegate void OnConsumeDelegate(int value);
         OnConsumeDelegate consumeDelegate;
 
+        public Consumable()
+        {
+        }
+        public Consumable(ConsumableType type, int value)
+        {
+            this.type = type;
+            this.value = value;
+        }
+
         public override Item Clone()
         {
             return (Consumable)MemberwiseClone();

@@ -15,10 +15,16 @@ namespace Nocturnal_Void.Entity.Movable
         public delegate void DeathCallback(Item loot);
         public DeathCallback OnDeath = (ignored) => { }; // Assign later.
 
-        public Foe()
+        public Foe(string name, int hp, int def, int str, Vector2 location, RelativeRenderable renderable) : base(name, hp, def, str, location, renderable)
         {
             statMan.OnDeath += delegate { OnDeath(loot); };
         }
+
+        public Foe() : base()
+        {
+            statMan.OnDeath += delegate { OnDeath(loot); };
+        }
+
 
         public override MobBase Clone()
         {

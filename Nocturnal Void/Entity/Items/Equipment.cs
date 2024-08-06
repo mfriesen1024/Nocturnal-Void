@@ -3,6 +3,17 @@
     public class Equipment : Item
     {
         public const int requiredBytes = 5;
+
+        public Equipment()
+        {
+        }
+
+        public Equipment(int value, EquipType type)
+        {
+            this.value = value;
+            this.type = type;
+        }   
+
         public int value { get; protected set; }
         public EquipType type { get; protected set; }
 

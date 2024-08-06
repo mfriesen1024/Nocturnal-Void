@@ -10,6 +10,18 @@ namespace Nocturnal_Void.Entity.Items
     public class Pickup
     {
         public const int requiredBytes = 14;
+
+        public Pickup()
+        {
+        }
+
+        public Pickup(RelativeRenderable renderable, Item item, Vector2 position)
+        {
+            this.renderable = renderable;
+            this.item = item;
+            this.position = position;
+        }
+
         public RelativeRenderable renderable { get; protected set; }
         public Item item { get; protected set; }
         public Vector2 position { get; protected set; } // Pickups are static in location, they shouldnt move.
