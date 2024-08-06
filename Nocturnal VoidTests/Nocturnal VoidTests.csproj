@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Nocturnal Void\Nocturnal Void.csproj" />
+    <ProjectReference Include="..\NVCampaignEditor\NVCampaignEditor.csproj" />
   </ItemGroup>
 
   <ItemGroup>
