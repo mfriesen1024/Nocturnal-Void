@@ -10,6 +10,7 @@ namespace NVCampaignEditor.Command.PrimaryCommands.DataManip
     {
         public Entity()
         {
+            Aliases = ["entity"];
         }
 
         protected override void Process(string[] argArray)
