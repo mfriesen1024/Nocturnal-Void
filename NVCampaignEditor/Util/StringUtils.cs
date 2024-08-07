@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NVCampaignEditor.Util
 {
-    public static class CommandParser
+    public static class StringUtils
     {
         /// <summary>
         /// Parse a given string into an array of values, based on the given separator. Originally intended to parse a command and arguments.

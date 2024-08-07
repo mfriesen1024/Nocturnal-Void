@@ -16,7 +16,7 @@ namespace NVCampaignEditor.Util.Tests
         public void ParseArgsTest()
         {
 
-            string[] strings = CommandParser.ParseArgs("you boring. also more words.");
+            string[] strings = StringUtils.ParseArgs("you boring. also more words.");
             foreach (string s in strings)
             {
                 Console.WriteLine(s);

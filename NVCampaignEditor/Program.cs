@@ -32,7 +32,7 @@ namespace NVCampaignEditor
                     Console.WriteLine("Enter a command, or \"help\" for help");
                     Console.WriteLine();
 
-                    string[] args = CommandParser.ParseArgs(Console.ReadLine());
+                    string[] args = StringUtils.ParseArgs(Console.ReadLine());
 
                     try
                     {
