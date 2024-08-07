@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace NVCampaignEditor.Command.PrimaryCommands.DataManip
 {
-    internal class Map : CommandBase
+    internal class ItemCmd : CommandBase
     {
-        public Map()
+        public ItemCmd()
         {
-            Aliases = ["map"];
+            Aliases = ["item"];
         }
 
         protected override void Process(string[] argArray)
         {
-            throw new NotImplementedException("Map commands are not implemented.");
+            throw new NotImplementedException();
         }
     }
 }

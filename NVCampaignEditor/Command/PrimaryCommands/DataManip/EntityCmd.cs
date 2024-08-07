@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace NVCampaignEditor.Command.PrimaryCommands.DataManip
 {
-    internal class Entity : CommandBase
+    internal class EntityCmd : CommandBase
     {
-        public Entity()
+        public EntityCmd()
         {
             Aliases = ["entity"];
         }
 
         protected override void Process(string[] argArray)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
