@@ -42,9 +42,10 @@ namespace Nocturnal_Void.FileSystem
             ItemLoader.SetConsumables(consumables);
             Equipment[] equip = [new Equipment(1, 0)];
             ItemLoader.SetEquip(equip);
-            Gold[] gold = [new Gold(1)];
-            ItemLoader.SetGold(gold);
-            Pickup[] pickups = [new Pickup(renderable, new Gold(1), Vector2.Zero)];
+            Gold goldObj = new Gold(1);
+            Gold[] goldObjs = [goldObj];
+            ItemLoader.SetGold(goldObjs);
+            Pickup[] pickups = [new Pickup(renderable, goldObj, Vector2.Zero)];
             ItemLoader.SetPickups(pickups);
 
             // Entity init.
