@@ -35,6 +35,8 @@ namespace NVCampaignEditor.Command.PrimaryCommands.DataManip.FoeCmd
             else { foe = AskPlayer(); }
 
             foes.Add(foe);
+            FileManager.EntityLoader.SetFoes(foes.ToArray());
+            Console.WriteLine($"Added foe with name {foe.name}");
         }
 
         private Foe AskPlayer()
