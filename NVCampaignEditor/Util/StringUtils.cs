@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NVCampaignEditor.Util
+﻿namespace NVCampaignEditor.Util
 {
     public static class StringUtils
     {
@@ -38,6 +32,31 @@ namespace NVCampaignEditor.Util
             args.Add(command.Substring(o + 1));
 
             return args.ToArray();
+        }
+
+        /// <summary>
+        /// Convert a character representing a hexidecimal number to an integer.
+        /// </summary>
+        /// <param name="c">The character to be parsed. Must be 0-f</param>
+        /// <returns>An integer from 0-15 based on the character input.</returns>
+        /// <exception cref="FormatException">Thrown if the character isn't hexidecimal.</exception>
+        public static int HexParse(char c)
+        {
+            // Try to return it as an int, its less code for me.
+            try { return int.Parse(c.ToString()); }
+            catch
+            {
+                switch (c)
+                {
+                    case 'a': return 10;
+                    case 'b': return 11;
+                    case 'c': return 12;
+                    case 'd': return 13;
+                    case 'e': return 14;
+                    case 'f': return 15;
+                    default: throw new FormatException($"Hex parse failed, character was {c}, which was deemed invalid.");
+                }
+            }
         }
     }
 }
