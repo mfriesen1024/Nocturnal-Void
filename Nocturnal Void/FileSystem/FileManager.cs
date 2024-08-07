@@ -50,7 +50,7 @@ namespace Nocturnal_Void.FileSystem
 
             // Entity init.
             EntityLoader.SetPlayer(new Player("Player", 100, 0,10,Vector2.Zero, renderable));
-            Foe[] foes = [new Foe("SampleFoe", 10, 5, 2, Vector2.Zero, renderable)];
+            Foe[] foes = [new Foe("SampleFoe", 10, 5, 2, 2, Vector2.Zero, renderable)];
             EntityLoader.SetFoes(foes);
         }
     }
