@@ -75,6 +75,8 @@ namespace Nocturnal_Void.FileSystem.Loaders
 
             // Now save all data to file.
             dataFile.WriteBytes(data.ToArray());
+
+            Console.WriteLine("Entities saved.");
         }
 
         /// <summary>

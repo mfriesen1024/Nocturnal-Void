@@ -1,4 +1,5 @@
 ﻿using Nocturnal_Void.Entity.Items;
+using TZPUtils.Logging;
 using File = Nocturnal_Void.FileSystem.Util.File;
 
 namespace Nocturnal_Void.FileSystem.Loaders
@@ -87,6 +88,7 @@ namespace Nocturnal_Void.FileSystem.Loaders
             {
                 pickups.Add((Pickup)data.GetRange(i, 14).ToArray());
             }
+            Console.WriteLine("Loaded items.");
         }
 
         public override void Save (File path)
@@ -137,6 +139,8 @@ namespace Nocturnal_Void.FileSystem.Loaders
             foreach(Pickup pickup in pickups) { bytes.AddRange((byte[])pickup);}
 
             dataFile.WriteBytes(bytes.ToArray());
+
+            Console.WriteLine("Items saved.");
         }
 
         /// <summary>
