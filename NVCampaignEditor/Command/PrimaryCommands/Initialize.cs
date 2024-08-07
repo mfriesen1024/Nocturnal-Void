@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nocturnal_Void.FileSystem;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,11 @@ namespace NVCampaignEditor.Command.PrimaryCommands
     /// <summary>
     /// Initializes the loader
     /// </summary>
-    internal class Initialize
+    internal class Initialize : CommandBase
     {
+        protected override void Process(string[] argArray)
+        {
+            FileManager.Init();
+        }
     }
 }

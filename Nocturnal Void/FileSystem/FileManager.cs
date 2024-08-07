@@ -1,6 +1,8 @@
 ﻿using Nocturnal_Void.Entity.Items;
 using Nocturnal_Void.Entity.Movable;
 using Nocturnal_Void.FileSystem.Loaders;
+using Nocturnal_Void.MapConstructs;
+using TZPRenderers.Text;
 using File = Nocturnal_Void.FileSystem.Util.File;
 
 namespace Nocturnal_Void.FileSystem
@@ -31,15 +33,19 @@ namespace Nocturnal_Void.FileSystem
         /// </summary>
         public static void Init()
         {
+            // Default items.
+            RPGTile[,] tiles = { { new RPGTile('d', ConsoleColor.White, ConsoleColor.Black) } };
+            RelativeRenderable renderable = new RelativeRenderable(tiles);
+
             // Item init.
-            ItemLoader.SetConsumables([new Consumable()]);
-            ItemLoader.SetEquip([new Equipment()]);
-            ItemLoader.SetGold([new Gold()]);
-            ItemLoader.SetPickups([new Pickup()]);
+            ItemLoader.SetConsumables([new Consumable(0,1)]);
+            ItemLoader.SetEquip([new Equipment(1, 0)]);
+            ItemLoader.SetGold([new Gold(1)]);
+            ItemLoader.SetPickups([new Pickup(renderable, new Gold(1), Vector2.Zero)]);
 
             // Entity init.
-            EntityLoader.SetPlayer(new Player());
-            EntityLoader.SetFoes([new Foe()]);
+            EntityLoader.SetPlayer(new Player("Player", 100, 0,10,Vector2.Zero, renderable));
+            EntityLoader.SetFoes([new Foe("SampleFoe", 10, 5, 2, Vector2.Zero, renderable)]);
         }
     }
 }
