@@ -1,4 +1,5 @@
 ﻿using NVCampaignEditor.Command.PrimaryCommands;
+using NVCampaignEditor.Command.PrimaryCommands.DataManip;
 
 namespace NVCampaignEditor.Command
 {
@@ -11,7 +12,8 @@ namespace NVCampaignEditor.Command
                 new Exit(),
                 new Initialize(),
                 new Load(),
-                new Save()];
+                new Save(),
+                new FoeCommand()];
         }
 
         protected override void Process(string[] argArray)
