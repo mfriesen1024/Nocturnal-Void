@@ -38,14 +38,19 @@ namespace Nocturnal_Void.FileSystem
             RelativeRenderable renderable = new RelativeRenderable(tiles);
 
             // Item init.
-            ItemLoader.SetConsumables([new Consumable(0,1)]);
-            ItemLoader.SetEquip([new Equipment(1, 0)]);
-            ItemLoader.SetGold([new Gold(1)]);
-            ItemLoader.SetPickups([new Pickup(renderable, new Gold(1), Vector2.Zero)]);
+            Consumable[] consumables = [new Consumable(0, 1)];
+            ItemLoader.SetConsumables(consumables);
+            Equipment[] equip = [new Equipment(1, 0)];
+            ItemLoader.SetEquip(equip);
+            Gold[] gold = [new Gold(1)];
+            ItemLoader.SetGold(gold);
+            Pickup[] pickups = [new Pickup(renderable, new Gold(1), Vector2.Zero)];
+            ItemLoader.SetPickups(pickups);
 
             // Entity init.
             EntityLoader.SetPlayer(new Player("Player", 100, 0,10,Vector2.Zero, renderable));
-            EntityLoader.SetFoes([new Foe("SampleFoe", 10, 5, 2, Vector2.Zero, renderable)]);
+            Foe[] foes = [new Foe("SampleFoe", 10, 5, 2, Vector2.Zero, renderable)];
+            EntityLoader.SetFoes(foes);
         }
     }
 }
