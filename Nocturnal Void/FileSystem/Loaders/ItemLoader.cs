@@ -39,7 +39,7 @@ namespace Nocturnal_Void.FileSystem.Loaders
 
             // Get consumables.
             reqBytes = Consumable.requiredBytes;
-            var consumables = this.consumables.ToList();
+            var consumables = new List<Consumable>();
             for (int i = cStart; i < cEnd; i += reqBytes)
             {
                 // get the required bytes, and cast the byte array.
@@ -53,7 +53,7 @@ namespace Nocturnal_Void.FileSystem.Loaders
 
             // Get equip.
             reqBytes = Equipment.requiredBytes;
-            var equip = this.equip.ToList();
+            var equip = new List<Equipment>();
             for (int i = eStart; i < eEnd; i += reqBytes)
             {
                 // get the required bytes, and cast the byte array.
@@ -67,7 +67,7 @@ namespace Nocturnal_Void.FileSystem.Loaders
 
             // Get gold.
             reqBytes = Gold.requiredBytes;
-            var gold = goldItems.ToList();
+            var gold = new List<Gold>();
             for (int i = gStart; i < gEnd; i += 4)
             {
                 gold.Add((Gold)data.GetRange(i, 4).ToArray());
@@ -81,7 +81,7 @@ namespace Nocturnal_Void.FileSystem.Loaders
             int pStart = BitConverter.ToInt32(data.ToArray(), gEnd + 1);
             int pEnd = BitConverter.ToInt32(data.ToArray(), gEnd + 5);
 
-            var pickups = this.pickups.ToList();
+            var pickups = new List<Pickup>();
             reqBytes = Pickup.requiredBytes;
             for (int i = pStart; i < pEnd; i += 14)
             {
