@@ -1,4 +1,5 @@
 ﻿using Nocturnal_Void.Entity.Items;
+using Nocturnal_Void.FileSystem;
 using Nocturnal_Void.Managers;
 using Nocturnal_Void.MapConstructs;
 using TZPRenderers.Text;
@@ -11,20 +12,32 @@ namespace Nocturnal_Void.Entity.Movable
     public class Foe : MobBase
     {
         // Do loot things here.
-        public Item loot; // Idk how we're going to assign loot. Deal with this later.
+        public Item loot;
         public delegate void DeathCallback(Item loot);
         public DeathCallback OnDeath = (ignored) => { }; // Assign later.
 
-        public Foe(string name, int hp, int def, int str, Vector2 location, RelativeRenderable renderable) : base(name, hp, def, str, location, renderable)
+        public Foe(string name, int hp, int def, int str, int lootItemIndex, Vector2 location, RelativeRenderable renderable) : base(name, hp, def, str, location, renderable)
         {
+            // Value setting
+
+            // Loot and delegation
+            loot = FileManager.ItemLoader.AllItems[lootItemIndex];
             statMan.OnDeath += delegate { OnDeath(loot); };
         }
 
         public Foe() : base()
-        {
-            statMan.OnDeath += delegate { OnDeath(loot); };
+        {            
         }
 
+        void Init()
+        {
+            statMan.OnDeath += StatmanDeathCallable;
+        }
+
+        void StatmanDeathCallable()
+        {
+            OnDeath(loot);
+        }
 
         public override MobBase Clone()
         {
@@ -62,14 +75,20 @@ namespace Nocturnal_Void.Entity.Movable
             int hp = BitConverter.ToInt32(bytes, 9 + nameLength);
             StatManager statMan = new StatManager(hp);
 
+            // Fetch loot.
+            int lootIndex = BitConverter.ToInt32(bytes, 13 + nameLength);
+            Item loot = FileManager.ItemLoader.AllItems[lootIndex];
+
             // Construct renderable.
             // Add 0 because we dont want to eat disc space for a value we never use.
-            var tileBytes = list.GetRange(13 + nameLength, 2); tileBytes.Add(0);
+            var tileBytes = list.GetRange(17 + nameLength, 2); tileBytes.Add(0);
             RPGTile[,] tileArray = new RPGTile[,] { { (RPGTile)tileBytes.ToArray() } };
             RelativeRenderable renderable = new RelativeRenderable(tileArray);
 
             // Finally construct the foe itself.
-            return new Foe() { def = def, str = str, statMan = statMan, renderable = renderable };
+            Foe foe = new Foe() { name = name, def = def, str = str, statMan = statMan, renderable = renderable, loot = loot };
+            foe.Init(); // This is to force delegation.
+            return foe;
         }
 
         public static explicit operator byte[](Foe foe)
@@ -84,6 +103,10 @@ namespace Nocturnal_Void.Entity.Movable
             list.AddRange(BitConverter.GetBytes(foe.def));
             list.AddRange(BitConverter.GetBytes(foe.str));
             list.AddRange(BitConverter.GetBytes(foe.statMan.MaxHP));
+
+            // Deconstruct loot
+            int index = FileManager.ItemLoader.AllItems.ToList().IndexOf(foe.loot);
+            list.AddRange(BitConverter.GetBytes(index));
 
             var tileBytes = ((byte[])(RPGTile)foe.renderable.tiles[0, 0]).ToList();
             list.AddRange(tileBytes.GetRange(0, 2)); // Only store the first 2 bytes to not waste space.
