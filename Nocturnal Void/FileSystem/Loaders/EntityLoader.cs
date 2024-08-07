@@ -86,6 +86,6 @@ namespace Nocturnal_Void.FileSystem.Loaders
         /// <summary>
         /// Setter method. Should only be used by the editor.
         /// </summary>
-        public void SetFoes(IEnumerable<Foe> foes) => this.foes = (Foe[])foes;
+        public void SetFoes(Foe[] foes) => this.foes = foes;
     }
 }
