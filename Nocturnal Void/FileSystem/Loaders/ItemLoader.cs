@@ -144,7 +144,10 @@ namespace Nocturnal_Void.FileSystem.Loaders
         /// </summary>
         void UpdateItemArray()
         {
-            List<Item> items = [.. consumables, .. equip, .. goldItems];
+            List<Item> items = new List<Item>();
+            items.AddRange(consumables);
+            if(equip != null) { items.AddRange(equip); }
+            if(goldItems != null) { items.AddRange(goldItems); }
             allItems = items.ToArray();
         }
 
