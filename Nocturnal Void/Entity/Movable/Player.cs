@@ -79,7 +79,7 @@ namespace Nocturnal_Void.Entity.Movable
         /// <param name="bytes">A byte array of length equal or greater than reqBytes</param>
         public static explicit operator Player(byte[] bytes)
         {
-            List<byte> list = new List<byte>();
+            List<byte> list = bytes.ToList();
 
             // Construct basic stats, adding 1 to start index due to our namelength byte.
             int def = BitConverter.ToInt32(bytes, 0);

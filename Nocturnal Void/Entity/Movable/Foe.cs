@@ -45,7 +45,7 @@ namespace Nocturnal_Void.Entity.Movable
         /// <param name="bytes"></param>
         public static explicit operator Foe(byte[] bytes)
         {
-            List<byte> list = new List<byte>();
+            List<byte> list = bytes.ToList();
 
             // Construct the name.
             byte nameLength = bytes[0];
