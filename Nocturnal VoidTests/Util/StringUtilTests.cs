@@ -32,7 +32,8 @@ namespace NVCampaignEditor.Util.Tests
         [TestMethod()]
         public void HexParseTest()
         {
-            Assert.Fail();
+            Assert.IsTrue(5 == StringUtils.HexParse('5'));
+            Assert.IsTrue(15 == StringUtils.HexParse('f'));
         }
     }
 }
