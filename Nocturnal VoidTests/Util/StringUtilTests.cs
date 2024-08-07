@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace NVCampaignEditor.Util.Tests
 {
     [TestClass()]
-    public class CommandParserTests
+    public class StringUtilTests
     {
         [TestMethod()]
         public void ParseArgsTest()
@@ -27,6 +27,12 @@ namespace NVCampaignEditor.Util.Tests
             {
                 Assert.IsTrue(strings[i].Equals(compare[i]));
             }
+        }
+
+        [TestMethod()]
+        public void HexParseTest()
+        {
+            Assert.Fail();
         }
     }
 }
