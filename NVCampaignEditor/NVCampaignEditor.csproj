@@ -19,4 +19,9 @@
     </ProjectReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Command\PrimaryCommands\DataManip\Item\" />
+    <Folder Include="Command\PrimaryCommands\DataManip\Map\" />
+  </ItemGroup>
+
 </Project>
