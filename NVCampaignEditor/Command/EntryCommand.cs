@@ -9,6 +9,7 @@ namespace NVCampaignEditor.Command
             Subcommands = [
                 new Help(),
                 new Exit(),
+                new Initialize(),
                 new Load(),
                 new Save()];
         }
