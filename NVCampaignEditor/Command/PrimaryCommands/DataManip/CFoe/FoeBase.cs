@@ -1,15 +1,14 @@
-﻿using NVCampaignEditor.Command.PrimaryCommands.DataManip.CFoe;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NVCampaignEditor.Command.PrimaryCommands.DataManip
+namespace NVCampaignEditor.Command.PrimaryCommands.DataManip.CFoe
 {
-    internal class FoeCommand : CommandBase
+    internal class FoeBase : CommandBase
     {
-        public FoeCommand()
+        public FoeBase()
         {
             Aliases = ["foe", "foes"];
             Subcommands = [new Create(), new Delete(), new List(), new Replace()];
