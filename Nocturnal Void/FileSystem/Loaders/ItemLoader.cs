@@ -158,33 +158,33 @@ namespace Nocturnal_Void.FileSystem.Loaders
         /// <summary>
         /// Setter method. Should only be used by the editor.
         /// </summary>
-        public void SetConsumables(IEnumerable<Consumable> consumables)
+        public void SetConsumables(Consumable[] consumables)
         {
-            this.consumables = (Consumable[])consumables;
+            this.consumables = consumables;
             UpdateItemArray();
         }
 
         /// <summary>
         /// Setter method. Should only be used by the editor.
         /// </summary>
-        public void SetEquip(IEnumerable<Equipment> equip)
+        public void SetEquip(Equipment[] equip)
         {
-            this.equip = (Equipment[])equip;
+            this.equip = equip;
             UpdateItemArray();
         }
 
         /// <summary>
         /// Setter method. Should only be used by the editor.
         /// </summary>
-        public void SetGold(IEnumerable<Gold> gold)
+        public void SetGold(Gold[] gold)
         {
-            goldItems = (Gold[])gold;
+            goldItems = gold;
             UpdateItemArray();
         }
 
         /// <summary>
         /// Setter method. Should only be used by the editor.
         /// </summary>
-        public void SetPickups(IEnumerable<Pickup> pickups) => this.pickups = (Pickup[])pickups;
+        public void SetPickups(Pickup[] pickups) => this.pickups = pickups;
     }
 }
