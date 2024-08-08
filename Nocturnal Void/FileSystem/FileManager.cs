@@ -40,7 +40,7 @@ namespace Nocturnal_Void.FileSystem
             // Item init.
             Consumable[] consumables = [new Consumable(0, 1)];
             ItemLoader.SetConsumables(consumables);
-            Equipment[] equip = [new Equipment(1, 0)];
+            Equipment[] equip = [new Equipment(0, 1)];
             ItemLoader.SetEquip(equip);
             Gold goldObj = new Gold(1);
             Gold[] goldObjs = [goldObj];
