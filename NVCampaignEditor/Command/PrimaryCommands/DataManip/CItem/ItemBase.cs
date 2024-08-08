@@ -9,7 +9,7 @@ namespace NVCampaignEditor.Command.PrimaryCommands.DataManip.CItem
         public ItemBase()
         {
             Aliases = ["item", "items", "i"];
-            Subcommands = [new ConsumableBase(), new EquipmentBase(), new GoldBase()];
+            Subcommands = [new ConsumableBase(), new EquipmentBase(), new GoldBase(), new ListAll()];
         }
 
         protected override void Process(string[] argArray)
