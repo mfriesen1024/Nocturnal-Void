@@ -1,11 +1,6 @@
 ﻿using NVCampaignEditor.Command.PrimaryCommands.DataManip.CItem.CConsumable;
 using NVCampaignEditor.Command.PrimaryCommands.DataManip.CItem.CEquip;
 using NVCampaignEditor.Command.PrimaryCommands.DataManip.CItem.CGold;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NVCampaignEditor.Command.PrimaryCommands.DataManip.CItem
 {
