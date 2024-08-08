@@ -1,5 +1,4 @@
 ﻿using Nocturnal_Void.Entity.Items;
-using TZPUtils.Logging;
 using File = Nocturnal_Void.FileSystem.Util.File;
 
 namespace Nocturnal_Void.FileSystem.Loaders
@@ -47,7 +46,7 @@ namespace Nocturnal_Void.FileSystem.Loaders
                 consumables.Add((Consumable)data.GetRange(i, reqBytes).ToArray());
             }
             this.consumables = consumables.ToArray();
-            
+
             // Next 8 bytes should define a range for equip.
             int eStart = BitConverter.ToInt32(data.ToArray(), cEnd + 1);
             int eEnd = BitConverter.ToInt32(data.ToArray(), cEnd + 5);
@@ -61,7 +60,7 @@ namespace Nocturnal_Void.FileSystem.Loaders
                 equip.Add((Equipment)data.GetRange(i, reqBytes).ToArray());
             }
             this.equip = equip.ToArray();
-      
+
             // Now define gold.
             int gStart = BitConverter.ToInt32(data.ToArray(), eEnd + 1);
             int gEnd = BitConverter.ToInt32(data.ToArray(), eEnd + 5);
@@ -91,7 +90,7 @@ namespace Nocturnal_Void.FileSystem.Loaders
             Console.WriteLine("Loaded items.");
         }
 
-        public override void Save (File path)
+        public override void Save(File path)
         {
             File dataFile = new File(path, fName);
 
@@ -112,31 +111,31 @@ namespace Nocturnal_Void.FileSystem.Loaders
             bytes.AddRange(BitConverter.GetBytes(cStart));
             bytes.AddRange(BitConverter.GetBytes(cEnd));
 
-            foreach(Consumable consumable in consumables) { bytes.AddRange((byte[])consumable); }
+            foreach (Consumable consumable in consumables) { bytes.AddRange((byte[])consumable); }
 
             // Start/End for Equip
             int eStart = cEnd + 9;
-            int eEnd = eStart -1 + equip.Length * Equipment.requiredBytes;
+            int eEnd = eStart - 1 + equip.Length * Equipment.requiredBytes;
             bytes.AddRange(BitConverter.GetBytes(eStart));
             bytes.AddRange(BitConverter.GetBytes(eEnd));
 
-            foreach(Equipment equipment in equip) { bytes.AddRange((byte[])equipment);}
+            foreach (Equipment equipment in equip) { bytes.AddRange((byte[])equipment); }
 
             // Gold
             int gStart = eEnd + 9;
-            int gEnd = gStart -1 + goldItems.Length * Gold.requiredBytes;
+            int gEnd = gStart - 1 + goldItems.Length * Gold.requiredBytes;
             bytes.AddRange(BitConverter.GetBytes(gStart));
             bytes.AddRange(BitConverter.GetBytes(gEnd));
 
-            foreach (Gold gItem in goldItems) {bytes.AddRange((byte[])gItem);}
+            foreach (Gold gItem in goldItems) { bytes.AddRange((byte[])gItem); }
 
             // Pickups
             int pStart = gEnd + 9;
-            int pEnd = pStart -1 + pickups.Length * Pickup.requiredBytes;
+            int pEnd = pStart - 1 + pickups.Length * Pickup.requiredBytes;
             bytes.AddRange(BitConverter.GetBytes(pStart));
             bytes.AddRange(BitConverter.GetBytes(pEnd));
 
-            foreach(Pickup pickup in pickups) { bytes.AddRange((byte[])pickup);}
+            foreach (Pickup pickup in pickups) { bytes.AddRange((byte[])pickup); }
 
             dataFile.WriteBytes(bytes.ToArray());
 
@@ -150,8 +149,8 @@ namespace Nocturnal_Void.FileSystem.Loaders
         {
             List<Item> items = new List<Item>();
             items.AddRange(consumables);
-            if(equip != null) { items.AddRange(equip); }
-            if(goldItems != null) { items.AddRange(goldItems); }
+            if (equip != null) { items.AddRange(equip); }
+            if (goldItems != null) { items.AddRange(goldItems); }
             allItems = items.ToArray();
         }
 

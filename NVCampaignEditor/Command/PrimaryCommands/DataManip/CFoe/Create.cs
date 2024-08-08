@@ -11,7 +11,7 @@ namespace NVCampaignEditor.Command.PrimaryCommands.DataManip.CFoe
     {
         public Create()
         {
-            Aliases = ["create", "c", "add","a"];
+            Aliases = ["create", "c", "add", "a"];
         }
 
         protected override void Process(string[] argArray)

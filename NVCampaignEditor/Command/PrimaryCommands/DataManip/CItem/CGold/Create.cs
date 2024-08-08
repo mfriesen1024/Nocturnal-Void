@@ -1,10 +1,5 @@
 ﻿using Nocturnal_Void.Entity.Items;
 using Nocturnal_Void.FileSystem;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NVCampaignEditor.Command.PrimaryCommands.DataManip.CItem.CGold
 {

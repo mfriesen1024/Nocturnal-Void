@@ -26,7 +26,7 @@ namespace Nocturnal_Void.Entity.Movable
         }
 
         public Foe() : base()
-        {            
+        {
         }
 
         void Init()

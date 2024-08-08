@@ -12,7 +12,7 @@
         {
             this.value = value;
             this.type = type;
-        }   
+        }
 
         public int value { get; protected set; }
         public EquipType type { get; protected set; }

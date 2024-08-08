@@ -7,7 +7,7 @@ namespace NVCampaignEditor.Command.PrimaryCommands.DataManip.CItem.CGold
     {
         public Replace()
         {
-            Aliases = ["replace","r"];
+            Aliases = ["replace", "r"];
         }
 
         protected override void Process(string[] argArray)

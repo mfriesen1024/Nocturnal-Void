@@ -1,12 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Nocturnal_Void.FileSystem;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Nocturnal_Void.FileSystem.Tests
+﻿namespace Nocturnal_Void.FileSystem.Tests
 {
     [TestClass()]
     public class FileManagerTest
