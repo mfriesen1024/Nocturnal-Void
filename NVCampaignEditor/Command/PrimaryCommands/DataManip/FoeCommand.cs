@@ -1,4 +1,4 @@
-﻿using NVCampaignEditor.Command.PrimaryCommands.DataManip.FoeCmd;
+﻿using NVCampaignEditor.Command.PrimaryCommands.DataManip.CFoe;
 using System;
 using System.Collections.Generic;
 using System.Linq;

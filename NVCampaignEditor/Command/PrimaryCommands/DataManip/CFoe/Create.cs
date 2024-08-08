@@ -5,7 +5,7 @@ using Nocturnal_Void.MapConstructs;
 using NVCampaignEditor.Util;
 using TZPRenderers.Text;
 
-namespace NVCampaignEditor.Command.PrimaryCommands.DataManip.FoeCmd
+namespace NVCampaignEditor.Command.PrimaryCommands.DataManip.CFoe
 {
     internal class Create : CommandBase
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NVCampaignEditor.Command.PrimaryCommands.DataManip.FoeCmd
+namespace NVCampaignEditor.Command.PrimaryCommands.DataManip.CFoe
 {
     internal class Replace : CommandBase
     {
