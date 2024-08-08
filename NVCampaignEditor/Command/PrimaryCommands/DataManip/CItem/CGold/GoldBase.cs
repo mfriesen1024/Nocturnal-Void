@@ -10,11 +10,13 @@ namespace NVCampaignEditor.Command.PrimaryCommands.DataManip.CItem.CGold
     {
         public GoldBase()
         {
+            Aliases = ["gold"];
+            Subcommands = [new Replace(), new Create(), new Delete()];
         }
 
         protected override void Process(string[] argArray)
         {
-            throw new NotImplementedException();
+            throw new ArgumentException("Invalid command.");
         }
     }
 }
