@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nocturnal_Void.FileSystem;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,11 +11,15 @@ namespace NVCampaignEditor.Command.PrimaryCommands.DataManip.FoeCmd
     {
         public Delete()
         {
+            Aliases = ["delete", "del", "d"];
         }
 
         protected override void Process(string[] argArray)
         {
-            
+            int i = int.Parse(argArray[0]);
+
+            var foes = FileManager.EntityLoader.Foes.ToList();
+            foes.RemoveAt(i);
         }
     }
 }

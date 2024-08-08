@@ -11,7 +11,7 @@ namespace NVCampaignEditor.Command.PrimaryCommands.DataManip
     {
         public FoeCommand()
         {
-            Aliases = ["foe"];
+            Aliases = ["foe", "foes"];
             Subcommands = [new Create(), new Delete(), new List(), new Replace()];
         }
 

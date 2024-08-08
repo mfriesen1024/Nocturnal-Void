@@ -11,7 +11,7 @@ namespace NVCampaignEditor.Command.PrimaryCommands.DataManip.FoeCmd
     {
         public Create()
         {
-            Aliases = ["create", "c"];
+            Aliases = ["create", "c", "add","a"];
         }
 
         protected override void Process(string[] argArray)
@@ -39,7 +39,7 @@ namespace NVCampaignEditor.Command.PrimaryCommands.DataManip.FoeCmd
             Console.WriteLine($"Added foe with name {foe.name}");
         }
 
-        private Foe AskPlayer()
+        public static Foe AskPlayer()
         {
             // Ask the user for details, because it'll be confusing otherwise.
             Console.WriteLine("Enter a name.");
@@ -67,7 +67,7 @@ namespace NVCampaignEditor.Command.PrimaryCommands.DataManip.FoeCmd
             return foe;
         }
 
-        private RelativeRenderable ConstructRenderable(string tileString)
+        private static RelativeRenderable ConstructRenderable(string tileString)
         {
             char c = tileString[0];
             ConsoleColor fg = (ConsoleColor)StringUtils.HexParse(tileString[1]);
