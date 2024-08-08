@@ -8,7 +8,7 @@
         {
         }
 
-        public Equipment(int value, EquipType type)
+        public Equipment(EquipType type, int value)
         {
             this.value = value;
             this.type = type;
