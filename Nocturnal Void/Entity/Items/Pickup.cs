@@ -14,6 +14,8 @@ namespace Nocturnal_Void.Entity.Items
         public Item item { get; protected set; }
         public Vector2 position { get; protected set; } // Pickups are static in location, they shouldnt move.
 
+        protected Pickup() { }
+
         /// <summary>
         /// Deep clone method to forcibly get a completely new object.
         /// </summary>

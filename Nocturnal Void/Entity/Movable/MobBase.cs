@@ -25,5 +25,7 @@ namespace Nocturnal_Void.Entity.Movable
         /// </summary>
         /// <returns>A deep copy of the object this is called on.</returns>
         public abstract MobBase Clone();
+
+        public void SetPosition(Vector2 location) { this.location = location; }
     }
 }
